@@ -79,6 +79,7 @@ public class ClickMouse : MonoBehaviour
             if (Text2.text == "Chlopek" && Text3.text == "Kamien")
             {
                 {
+                    //Tibia
                     IloscKamien++;
                     //GameObject Textx2 = GameObject.Find(Text2.text);
                     GameObject KamienJedenMiesjce = GameObject.Find("KMiejsceJeden");
