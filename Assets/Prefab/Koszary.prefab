@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4449598546605222306}
   - component: {fileID: 3785135443226039900}
   m_Layer: 0
-  m_Name: Koszary 2
+  m_Name: Koszary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4229499479536989323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0, y: 0.133, z: 0}
+  m_LocalScale: {x: 1.231405, y: 0.7752, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,3 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7e6446c0ab1744b8972db9c59d414b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Koszary1: {fileID: 0}
+  Koszary2: {fileID: 0}
+  Koszary3: {fileID: 0}
+  lucznikPrefab: {fileID: 0}
+  wlocznikPrefab: {fileID: 0}
+  ListaLucznikow: []
+  ListaWlocznikow: []

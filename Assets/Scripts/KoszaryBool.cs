@@ -11,30 +11,40 @@ public class KoszaryBool : MonoBehaviour
     GameObject Koszaryy;
     GameObject Koszary;
     public Button Kosz;
+    bool czyKoszaryExist = false;
 
     private void Start()
     {
         Button kosza = GetComponent<Button>();
         kosza.onClick.AddListener(OnClickKoszary);
+        
     }
     private void Update()
     {
-
-            //if (Input.GetMouseButtonDown(1))
-            //{
-            //    Koszary = Instantiate(koszaryPrefab);
-            //    Koszary.active = false;
-            //    Koszary.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
-            //    Koszary.active = true;
-            //    CzyTrue.text = "nie";
-            //}
+        if (KoszaryCzy == true) {
+            if (Input.GetMouseButtonDown(1))
+            {
+                Koszary = Instantiate(koszaryPrefab);
+                Koszary.SetActive(false);
+                Koszary.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+                Koszary.SetActive(true);
+                KoszaryCzy = false;
+                czyKoszaryExist = true;
+            }
+        }
+       if(czyKoszaryExist == true)
+        {
+            Button kosza = GetComponent<Button>();
+            kosza.GetComponent<Image>().color = Color.red;
+        }
     }
     public void OnClickKoszary()
     {
-        CzyTrue.text = "tak";
+        KoszaryCzy = true;
     }
-
 }
+    
+
 
     
 

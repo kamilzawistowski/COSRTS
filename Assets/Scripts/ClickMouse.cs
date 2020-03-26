@@ -19,10 +19,13 @@ public class ClickMouse : MonoBehaviour
     public List<GameObject> ListaObiektow = new List<GameObject>();
 
     Baza ListaChlopow = new Baza();
+    ChlopInfo InfoOChlopie = new ChlopInfo();
     
 
     private void Start()
     {
+
+        
         //GameObject ButtonBazaa = GameObject.Find("NazwaTla");
         GameObject InfoLeft = GameObject.Find("InfoLeft");
         Text2 = InfoLeft.GetComponent<Text>();
@@ -40,6 +43,7 @@ public class ClickMouse : MonoBehaviour
     }
     void Update()
     {
+        PrzydzielenieDoSurowcow();
         if (Input.GetMouseButtonDown(0))
         {
 
@@ -57,8 +61,68 @@ public class ClickMouse : MonoBehaviour
                Text2.text = "Tlo"; // DO usuniecia
             }
 
+            
+        }
+        Debug.Log(currentObject);
+        //GameObject JakiObiekt = GameObject.Find(currentObject.ToString());
+
+
+        if (Input.GetMouseButtonDown(1))
+        {
+
+            RaycastHit2D hit2 = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
+            if (hit2.collider != null)
+            {
+                Text3.text = hit2.collider.gameObject.name;
+            }
+            else if (hit2.collider != gameObject)
+            {
+                Text3.text = "Tlo";
+            }
+
+            if 
+            (Text2.text == "")
+            {
+
+            }
+            //else if (JakiObiekt.GetComponent<ChlopInfo>().selectedChlop == true)
+            //{
+            //    Vector3 mousePos2D = Input.mousePosition;
+            //    mousePos2D.z = -Camera.main.transform.position.z - 10;
+            //    Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+            //    GameObject chlopek = GameObject.Find(Text2.text);
+            //    chlopek.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+            //}
+
+
+            else if (Text2.text == "Chlopek")
+            {
+                Vector3 mousePos2D = Input.mousePosition;
+                mousePos2D.z = -Camera.main.transform.position.z - 10;
+                Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+                GameObject chlopek = GameObject.Find(Text2.text);
+                chlopek.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+            }
+            
+            
+
+            
+
+            else if (Text2.text == "Chlopek2")
+            {
+                Vector3 mousePos2D = Input.mousePosition;
+                mousePos2D.z = -Camera.main.transform.position.z - 10;
+                Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+                GameObject chlopek = GameObject.Find(Text2.text);
+                chlopek.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+            }
+        }
+
+        void PrzydzielenieDoSurowcow()
+        {
             GameObject ChlopekTest = GameObject.Find("Chlopek");
             GameObject DrewnoJedenMiesjce = GameObject.Find("DMiejsceJeden");
+            GameObject BazaJedenMiesjce = GameObject.Find("BMiejsceJeden");
 
             if (Text2.text == "Chlopek" && Text3.text == "Drewno")
             {
@@ -102,47 +166,8 @@ public class ClickMouse : MonoBehaviour
                 {
                     //GameObject Textx2 = GameObject.Find(Text2.text);
                     //GameObject DrewnoJedenMiesjce = GameObject.Find("BMiejsceJeden");
-                    ChlopekTest.transform.position = DrewnoJedenMiesjce.transform.position;
+                    ChlopekTest.transform.position = BazaJedenMiesjce.transform.position;
                 }
-            }
-        }
-
-       
-
-
-        if (Input.GetMouseButtonDown(1))
-        {
-
-            RaycastHit2D hit2 = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
-            if (hit2.collider != null)
-            {
-                Text3.text = hit2.collider.gameObject.name;
-            }
-            else if (hit2.collider != gameObject)
-            {
-                Text3.text = "Tlo";
-            }
-
-            if 
-            (Text2.text == "")
-            {
-
-            }
-            else if (Text2.text == "Chlopek")
-            {
-                Vector3 mousePos2D = Input.mousePosition;
-                mousePos2D.z = -Camera.main.transform.position.z - 10;
-                Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-                GameObject chlopek = GameObject.Find(Text2.text);
-                chlopek.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
-            }
-            else if (Text2.text == "Chlopek2")
-            {
-                Vector3 mousePos2D = Input.mousePosition;
-                mousePos2D.z = -Camera.main.transform.position.z - 10;
-                Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-                GameObject chlopek = GameObject.Find(Text2.text);
-                chlopek.transform.position = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
             }
         }
     }
